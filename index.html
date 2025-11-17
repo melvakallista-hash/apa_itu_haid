@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Haid</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6f7;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            background-color: #ff99cc;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px #ff66b2;
+        }
+        section {
+            background-color: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+        }
+        p, ul {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #ffe6f7;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #calculator {
+            background-color: #ffccdd;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        input, button {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 2px solid #ff66b2;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+        #result {
+            font-size: 1.5em;
+            color: #ff3385;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 1em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌸 Penjelasan Haid 🌸</h1>
+    </header>
+
+    <section id="apa-itu-haid">
+        <h2>Apa Itu Haid?</h2>
+        <p>Haid atau menstruasi adalah proses alami di mana tubuh wanita mengeluarkan darah dan jaringan dari rahim setiap bulan. Ini terjadi sebagai bagian dari siklus reproduksi dan biasanya berlangsung 3-7 hari. Haid menandai awal siklus menstruasi baru.</p>
+    </section>
+
+    <section id="jenis-haid">
+        <h2>Jenis-Jenis Haid</h2>
+        <ul>
+            <li><strong>Haid Normal:</strong> Aliran darah sedang, berlangsung 3-7 hari, tanpa gejala berlebihan.</li>
+            <li><strong>Haid Berat (Menoragia):</strong> Aliran darah sangat banyak, mungkin memerlukan pembalut sering diganti.</li>
+            <li><strong>Haid Ringan (Hipomenorea):</strong> Aliran darah sedikit, seperti bercak darah.</li>
+            <li><strong>Haid Tidak Teratur:</strong> Siklus tidak konsisten, bisa lebih dari 35 hari atau kurang dari 21 hari.</li>
+            <li><strong>Haid Nyeri (Dismenorea):</strong> Disertai rasa sakit perut yang intens.</li>
+        </ul>
+    </section>
+
+    <section id="kurangi-rasa-haid">
+        <h2>Cara Mengurangi Rasa Sakit Haid</h2>
+        <ul>
+            <li>Minum air hangat atau teh jahe untuk meredakan kram.</li>
+            <li>Lakukan olahraga ringan seperti jalan kaki atau yoga.</li>
+            <li>Gunakan kompres hangat di perut bawah.</li>
+            <li>Konsumsi makanan sehat seperti buah-buahan dan sayuran, hindari kafein dan garam berlebih.</li>
+            <li>Ambil obat pereda nyeri seperti ibuprofen jika diperlukan, tapi konsultasikan dengan dokter.</li>
+            <li>Istirahat cukup dan kelola stres dengan meditasi.</li>
+        </ul>
+    </section>
+
+    <section id="calculator">
+        <h2>🧮 Kalkulator Penghitung Haid</h2>
+        <p>Masukkan tanggal haid terakhir Anda (format: YYYY-MM-DD) dan rata-rata siklus (dalam hari, biasanya 28 hari):</p>
+        <input type="date" id="lastPeriod" placeholder="Tanggal haid terakhir">
+        <input type="number" id="cycleLength" placeholder="Panjang siklus (hari)" value="28">
+        <button onclick="calculateNextPeriod()">Hitung Haid Berikutnya</button>
+        <div id="result"></div>
+    </section>
+
+    <footer>
+        <p>Informasi ini untuk edukasi umum. Konsultasikan dengan dokter untuk saran medis pribadi. 🌟</p>
+    </footer>
+
+    <script>
+        function calculateNextPeriod() {
+            const lastPeriod = new Date(document.getElementById('lastPeriod').value);
+            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+            if (isNaN(lastPeriod.getTime()) || isNaN(cycleLength)) {
+                document.getElementById('result').innerText = 'Masukkan tanggal dan panjang siklus yang valid!';
+                return;
+            }
+            const nextPeriod = new Date(lastPeriod);
+            nextPeriod.setDate(lastPeriod.getDate() + cycleLength);
+            document.getElementById('result').innerText = `Haid berikutnya diperkirakan pada: ${nextPeriod.toLocaleDateString('id-ID')}`;
+        }
+    </script>
+</body>
+</html>
